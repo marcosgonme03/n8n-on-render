@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    disk:
+      name: data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
+    autoDeploy: true
+    envVars:
+      - key: N8N_PORT
+        value: 5678
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_HOST
+        value: n8n.onrender.com   # cámbialo luego por tu URL real
+      - key: WEBHOOK_URL
+        value: https://n8n.onrender.com/
+      - key: N8N_ENCRYPTION_KEY
+        value: 9f38d7a2b4c6f8e1d3a9c7e5f1b2a4c8d6e7f9a3b1c5d7f2e9a8c6b4f2d1e3f9
+
+      - key: TZ
+        value: Europe/Madrid
+      - key: N8N_DIAGNOSTICS_ENABLED
+        value: "false"
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: marcos
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: Gonzalez123
